@@ -1,0 +1,73 @@
+body.signin{
+	height: auto;
+	background: url(../images/beijing2.jpg) no-repeat center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: rgba(255,255,255,.95);
+}
+.signinpanel {
+    width: 344px;
+    margin: 10% auto 0;
+    border-bottom: solid 1px rgba(255,255,255,.3);
+}
+.signinpanel .logopanel {
+    float: none;
+    width: auto;
+    padding: 0;
+    background: 0 0;
+}
+.m-b {
+    margin-bottom: 15px;
+}
+h2 {
+    font-size: 24px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+}
+h3, h4, h5 {
+    margin-top: 5px;
+    font-weight: 600;
+}
+h4 {
+    font-size: 14px;
+}
+.signinpanel form {
+    background: rgba(255,255,255,.44);
+    border: 1px solid rgba(255,255,255,.3);
+    -moz-box-shadow: 0 3px 0 rgba(12,12,12,.03);
+    -webkit-box-shadow: 0 3px 0 rgba(12,12,12,.03);
+    box-shadow: 0 3px 0 rgba(12,12,12,.03);
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 50px;
+}
+element.style {
+    color: #323232;
+}
+.signinpanel .form-control {
+    display: block;
+    margin-top: 15px;
+}
+.signinpanel .uname {
+    background: #fff url(../images/user.png) no-repeat 95% center;
+    color: #333;
+}
+.signinpanel .form-control {
+    display: block;
+    margin-top: 15px;
+}
+.signinpanel .pword {
+    background: #fff url(../images/locked.png) no-repeat 95% center;
+    color: #333;
+}
+.signinpanel .btn {
+    margin-top: 15px;
+
+}
+.btn {
+    border-radius: 3px;
+}

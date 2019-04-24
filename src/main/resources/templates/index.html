@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>云签后台管理</title>
+</head>
+<!-- VENDOR CSS -->
+<!-- Bootstrap -->
+<!--<link rel="stylesheet" th:href="@{/asserts/css/bootstrap.min.css}" type="text/css">-->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.0/css/bootstrap.min.css}"  type="text/css"/>
+<link rel="stylesheet"
+      th:href="@{/asserts/vendor/font-awesome/css/font-awesome.min.css}">
+<link rel="stylesheet"
+      th:href="@{/asserts/vendor/linearicons/style.css}" type="text/css">
+<link rel="stylesheet"
+      th:href="@{/asserts/vendor/chartist/css/chartist-custom.css}">
+<!-- MAIN CSS -->
+<link rel="stylesheet" th:href="@{/asserts/css/main.css}">
+<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+<link rel="stylesheet" th:href="@{/asserts/css/demo.css}">
+<link rel="stylesheet"
+      th:href="@{/asserts/css/bootstrap-datepicker3.min.css}">
+<link rel="stylesheet"
+      th:href="@{/asserts/css/bootstrap-datetimepicker.min.css}">
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css"
+      th:href="@{/asserts/css/dataTables.css}">
+<!-- ICONS -->
+<!--<link rel="apple-touch-icon" sizes="76x76"-->
+      <!--th:href="@{/asserts/images/apple-icon.png}">-->
+<link rel="icon" type="image/png" sizes="96x96"
+      th:href="@{/asserts/images/favicon.ico}">
+<link rel="stylesheet" th:href="@{/asserts/css/index.css}">
+<link rel="stylesheet" type="text/css"
+      th:href="@{/asserts/css/jquery.dataTables.min.css}">
+<link rel="stylesheet" type="text/css"
+      th:href="@{/asserts/css/common.css}">
+
+<body>
+<!-- WRAPPER -->
+<div id="wrapper">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="brand">
+            <a href="index.html"><img
+                    th:src="@{/asserts/images/logo_school.png}" alt="Klorofil Logo"
+                    class="img-responsive logo" style="height: 70px;"></a>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-btn">
+                <button type="button" class="btn-toggle-fullwidth">
+                    <i class="lnr lnr-arrow-left-circle"></i>
+                </button>
+            </div>
+            <div class="navbar-header welcome-message">
+                <h2 style="margin-top: 26px;">云签后台管理系统</h2>
+            </div>
+            <div id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                            data-toggle="dropdown"> <span id="show">[[${session.account.Name}]]([[${session.account.RoleId}]])</span>
+                        <i id="show" class="icon-submenu lnr lnr-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <!--<%&#45;&#45; <c:if test="${user.identity=='学生'}">-->
+                            <!--<li><a href="#" data-toggle="modal"-->
+                                   <!--data-target="#editMessage"><i class="lnr lnr-user"></i> <span>个人信息修改</span></a></li>-->
+                        <!--</c:if> &#45;&#45;%>-->
+                            <li><a
+                                    href="javascript:openModal('${user.name }','${user.identity }')"><i
+                                    class="lnr lnr-envelope"></i> <span>密码修改</span></a></li>
+                            <li><a href="${ctx }/user/logout.do"><i
+                                    class="lnr lnr-exit"></i> <span>退出登录</span></a></li>
+                        </ul></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                            data-toggle="dropdown"> <span id="show">帮助</span> <i
+                            id="show" class="icon-submenu lnr lnr-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">下载操作文档</a></li>
+                        </ul></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAVBAR -->
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li><a href="${ctx }/user/index.do" class="active"><i
+                            class="lnr lnr-home"></i> <span>主页</span></a></li>
+                    <!--<c:if test="${user.identity!='学生'}">-->
+                        <!--&lt;!&ndash; 不是学生就能访问信息管理 &ndash;&gt;-->
+                        <!--<li><a href="#subPages1" data-toggle="collapse"-->
+                               <!--class="collapsed"><i class="lnr lnr-user"></i> <span>信息管理</span>-->
+                            <!--<i class="icon-submenu lnr lnr-chevron-left"></i></a>-->
+                            <!--<div id="subPages1" class="collapse">-->
+                                <!--<ul class="nav">-->
+                                    <!--<li><a href="${ctx }/student/to_student_info.do" class="">学生信息管理</a></li>-->
+                                    <!--<c:if test="${user.identity!='测评小组'}">-->
+                                        <!--<li><a href="${ctx }/user/to_user_info.do" class="">测评小组信息管理</a></li>-->
+                                    <!--</c:if>-->
+                                    <!--<c:if test="${user.identity!='测评小组'&&user.identity!='教师'}">-->
+                                        <!--<li><a href="${ctx }/teacher/to_teacher_info.do"-->
+                                               <!--class="">教师信息管理</a></li>-->
+                                    <!--</c:if>-->
+                                    <!--<li><a href="${ctx }/notice/to_notice_info.do" class="">公告管理</a></li>-->
+                                <!--</ul>-->
+                            <!--</div></li>-->
+                    <!--</c:if>-->
+                    <li><a href="#subPages" data-toggle="collapse"
+                           class="collapsed"><i class="lnr lnr-bookmark"></i> <span>成绩管理</span>
+                        <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages" class="collapse">
+                            <ul class="nav">
+                                <li><a href="${ctx }/subject/to_subject_info.do" class="">专业学科管理</a></li>
+                                <li><a href="${ctx }/score/to_score_info.do" class="">专业成绩管理</a></li>
+                                <li><a href="${ctx }/assessment/to_assessment_info.do"
+                                       class="">综合测评管理</a></li>
+                            </ul>
+                        </div></li>
+                    <li><a href="#subPages2" data-toggle="collapse" class=""><i
+                            class="lnr lnr-bookmark"></i> <span>图表汇总</span> <i
+                            class="icon-submenu lnr lnr-chevron-left"></i></a>
+                        <div id="subPages2" class="collapse">
+                            <ul class="nav">
+                                <li><a href="${ctx }/summary/to_summary.do" class="">平均分汇总</a></li>
+                            </ul>
+                        </div></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- END LEFT SIDEBAR -->
+    <!-- MAIN -->
+    <div class="main">
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>公告</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <ol>
+                                    <!-- ngRepeat: notice in notices -->
+                                    <!--<c:forEach items="${notices}" var="notice">-->
+                                        <!--<li class="ng-scope"><a-->
+                                                <!--href="${ctx }/notice/download.do?filepath=${notice.getNFilepath()}"-->
+                                                <!--class="ng-pristine ng-untouched ng-valid ng-binding">-->
+                                            <!--[标题] ${notice.getNTitle()} [ ${notice.getNDate()} ]</a></li>-->
+                                    <!--</c:forEach>-->
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN -->
+    <div class="clearfix"></div>
+
+
+    <!-- Modal begin -->
+    <div id="editPassword" class="modal fade bs-example-modal-sm"
+         tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">原密码</label>
+                            <div class="col-sm-8">
+                                <input type="password" id="old_password" class="form-control"
+                                       placeholder="原密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">新密码</label>
+                            <div class="col-sm-8">
+                                <input type="password" id="new_password" class="form-control"
+                                       placeholder="新密码">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">确认密码</label>
+                            <div class="col-sm-8">
+                                <input type="password" id="re_password" class="form-control"
+                                       placeholder="确认密码">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取
+                        消</button>
+                    <!-- <button type="button" class="btn btn-primary" id="stu_add">添 加</button> -->
+                    <button id="btn_editPassword" type="button"
+                            class="btn btn-success">提 交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end -->
+
+</div>
+<script type="text/javascript" th:inline="javascript">
+       <!--获取项目名-->
+       ctx = /*[[@{/}]]*/ '';
+</script>　
+<!-- Javascript -->
+<script type="text/javascript"
+        th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{/asserts/js/bootstrap-datepicker.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{/asserts/js/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{/asserts/js/jquery.toaster.js}"></script>
+<script type="text/javascript" charset="utf8"
+        th:src="@{/asserts/js/jquery.dataTables.js}"></script>
+<script
+        th:src="@{/asserts/vendor/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+<script
+        th:src="@{/asserts/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js}"></script>
+<script
+        th:src="@{/asserts/vendor/chartist/js/chartist.min.js}"></script>
+<script th:src="@{/asserts/scripts/klorofil-common.js}"></script>
+<script th:src="@{/asserts/js/common.js}"></script>
+</body>
+</html>

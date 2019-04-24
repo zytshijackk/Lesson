@@ -1,0 +1,56 @@
+ul{
+	list-style: none;
+}
+h4, h5, h6, h1, h2, h3 {
+    margin-top: 0;
+    font-weight: 100;
+}
+h2 {
+    font-size: 24px;
+}
+a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+p{
+      margin: 5px 0 10px;
+}
+div{
+	display: block;
+}
+.main{
+	width: 1100px;
+	margin:0 auto;
+	padding-top: 50px;
+}
+.top{
+	margin:0 auto;
+	width: 1100px;
+	height: 200px;
+	border-bottom:solid 1px black;
+	padding-top: 60px;
+}
+.ranksel{
+	background-color: white;
+    width: 140px;
+    height: 34px;
+}
+.datediv{
+	width: 263px;
+	height: 80px;
+	float: left;
+	margin-right: 10px;
+}
+.brand{
+padding: 5px 20px! important;
+}
+.brand span{
+	font-size: 22px;
+}
+#show{
+    display: contents;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.lesson.dao.UserMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.User">
+		<id column="Id" property="Id" />
+		<result column="No" property="No" />
+		<result column="Name" property="Name" />
+		<result column="RoleId" property="RoleId" />
+		<result column="Phone" property="Phone" />
+		<result column="Email" property="Email" />
+		<result column="DepartmentId" property="DepartmentId" />
+		<result column="CreateDate" property="CreateDate" />
+		<result column="CreateBy" property="CreateBy" />
+		<result column="ModifyDate" property="ModifyDate" />
+		<result column="ModifyBy" property="ModifyBy" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Id, No, Name, RoleId, Phone, Email, DepartmentId, CreateDate, CreateBy, ModifyDate, ModifyBy
+    </sql>
+
+</mapper>
