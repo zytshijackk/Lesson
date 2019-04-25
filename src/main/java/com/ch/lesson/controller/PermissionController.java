@@ -73,13 +73,13 @@ public class PermissionController {
     public Object createPermission(@RequestBody Permission permission, HttpSession session) {
         //@RequestBody注解将Http请求正文插入方法中，即将请求中的 datas 写入 permission 对象中
         User account = (User) session.getAttribute("account");
-//        permission.setCreateBy(account.getId());
-        permission.setCreateBy(1);
+        permission.setCreateBy(account.getId());
+//        permission.setCreateBy(1);
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         permission.setCreateDate(dateFormat.format(date));
-//        permission.setModifyBy(account.getId());
-        permission.setModifyBy(1);
+        permission.setModifyBy(account.getId());
+//        permission.setModifyBy(1);
         permission.setModifyDate(dateFormat.format(date));
         Integer maxPositionByParentId = permissionIService.findMaxPositionByParentId(permission.getParentId());
         if(maxPositionByParentId==null){//表示父节点下没有子节点
@@ -111,8 +111,8 @@ public class PermissionController {
     public Object modifyPermission(@RequestBody Permission permission, HttpSession session) {
         System.out.println(permission.toString());
         User account = (User) session.getAttribute("account");
-//        permission.setModifyBy(account.getId());
-        permission.setModifyBy(1);
+        permission.setModifyBy(account.getId());
+//        permission.setModifyBy(1);
         //获取当前时间
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
