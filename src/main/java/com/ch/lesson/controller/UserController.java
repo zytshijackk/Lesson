@@ -77,13 +77,13 @@ public class UserController {
     public Object createUser(@RequestBody User user, HttpSession session) {
         //@RequestBody注解将Http请求正文插入方法中，即将请求中的 datas 写入 user 对象中
         User account = (User) session.getAttribute("account");
-//        user.setCreateBy(account.getId());
-        user.setCreateBy(1);
+        user.setCreateBy(account.getId());
+//        user.setCreateBy(1);
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         user.setCreateDate(dateFormat.format(date));
-//        user.setModifyBy(account.getId());
-        user.setModifyBy(1);
+        user.setModifyBy(account.getId());
+//        user.setModifyBy(1);
         user.setModifyDate(dateFormat.format(date));
         boolean isSuccess = userIService.save(user);
         if(isSuccess==true){
@@ -101,8 +101,8 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.PUT)
     public Object modifyUser(@RequestBody User user, HttpSession session) {
         User account = (User) session.getAttribute("account");
-//        user.setModifyBy(account.getId());
-        user.setModifyBy(1);
+        user.setModifyBy(account.getId());
+//        user.setModifyBy(1);
         //获取当前时间
         Date date = new Date();
         SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
