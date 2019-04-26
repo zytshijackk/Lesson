@@ -44,8 +44,8 @@ public class WebConfigurer implements WebMvcConfigurer {
          * excludePathPatterns() 排除一些静态依赖
          */
         //注解打开启动拦截器
-//        registry.addInterceptor(new LoginInterceptor())
-//                .addPathPatterns("/**")
-//                .excludePathPatterns("/webjars/**","/asserts/**");
+        registry.addInterceptor(new LoginInterceptor())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/passport/*");
     }
 }
