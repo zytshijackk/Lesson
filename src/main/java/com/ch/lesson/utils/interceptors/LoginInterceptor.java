@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ch.lesson.domain.User;
+import com.ch.lesson.utils.Result;
+import com.ch.lesson.utils.exception.NotFoundException;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,15 +46,16 @@ public class LoginInterceptor implements HandlerInterceptor {
 		}
 		// 获取Session
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		User user = (User) session.getAttribute("account");
 		System.out.println(user);
 		if (user != null) {
 			return true;
 		}else {
 			// 不符合条件的，跳转到登录界面
-			request.getRequestDispatcher("/tologin").forward(request, response);
+			throw new NotFoundException("您还未登录，请先登录！",Result.ErrorCode.USER_UN_LOGIN.getCode());
+//			request.getRequestDispatcher("/tologin").forward(request, response);
 		}
-		return false;
+//		return false;
 	}
 
 }
