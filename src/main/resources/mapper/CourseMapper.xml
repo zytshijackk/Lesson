@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ch.lesson.mapper.CourseMapper">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.Course">
+		<id column="Id" property="Id" />
+		<result column="ClassName" property="ClassName" />
+		<result column="CourseName" property="CourseName" />
+		<result column="Semester" property="Semester" />
+		<result column="Demand" property="Demand" />
+		<result column="Process" property="Process" />
+		<result column="Exam" property="Exam" />
+		<result column="CreateDate" property="CreateDate" />
+		<result column="CreateBy" property="CreateBy" />
+		<result column="ModifyDate" property="ModifyDate" />
+		<result column="ModifyBy" property="ModifyBy" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Id, ClassName, CourseName, Semester, Demand, Process, Exam, CreateDate, CreateBy, ModifyDate, ModifyBy
+    </sql>
+
+</mapper>
