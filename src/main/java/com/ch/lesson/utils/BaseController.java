@@ -17,15 +17,15 @@ import java.util.List;
 import java.util.Map;
 
 public class BaseController<T> {
-    static Map<String, String> map = Maps.newConcurrentMap();
-
-    static {
-        map.put("Equal", "eq");
-        map.put("Like", "like");
-        map.put("GreaterThanOrEqual", "ge");
-        map.put("LessThanOrEqual", "le");
-        map.put("In", "in");
-    }
+//    static Map<String, String> map = Maps.newConcurrentMap();
+//
+//    static {
+//        map.put("Equal", "eq");
+//        map.put("Like", "like");
+//        map.put("GreaterThanOrEqual", "ge");
+//        map.put("LessThanOrEqual", "le");
+//        map.put("In", "in");
+//    }
     @Autowired
     protected HttpServletRequest request;
     @Autowired
@@ -40,7 +40,7 @@ public class BaseController<T> {
      * @throws IllegalAccessException
 */
 
-    public PageDTO<T> getList() throws Exception {
+    public List<T> getList() throws Exception {
         //从request中获取参数列表
         Map<String, String[]> parameterMap = request.getParameterMap();
         QueryWrapper<T> queryWrapper = new QueryWrapper<>();
@@ -63,12 +63,12 @@ public class BaseController<T> {
             Method method;
             Object value;
             //关键字为in时，把参数值转为集合类型
-            if (SqlKeyword.IN.name().toLowerCase().equals(map.get(keyword))) {
+            if (SqlKeyword.IN.name().toLowerCase().equals(keyword)) {
                 value = Arrays.asList(parameterMap.get(s)[0].split(","));
-                method = queryWrapperClass.getMethod(map.get(keyword), boolean.class, Object.class, Collection.class);
+                method = queryWrapperClass.getMethod(keyword, boolean.class, Object.class, Collection.class);
             } else {
                 value = parameterMap.get(s)[0];
-                method = queryWrapperClass.getMethod(map.get(keyword), boolean.class, Object.class, Object.class);
+                method = queryWrapperClass.getMethod(keyword, boolean.class, Object.class, Object.class);
             }
             //反射调用相关方法
             method.invoke(queryWrapper, true, column, value);
@@ -78,17 +78,17 @@ public class BaseController<T> {
         method.invoke(queryWrapper, "sort_index");
         //baseMapper.selectPage()
         //判断是否分页
-        boolean isPage = parameterMap.get("page") != null
-                && Integer.parseInt(parameterMap.get("page")[0]) > 0
-                && parameterMap.get("size") != null
-                && Integer.parseInt(parameterMap.get("size")[0]) > 0;
-        if (isPage) {
-            Page page = new Page((long) Integer.parseInt(parameterMap.get("page")[0]), Integer.parseInt(parameterMap.get("size")[0]));
-            IPage iPage = baseMapper.selectPage(page, queryWrapper);
-            return PageWapper.pageToPageDTO((Page) iPage);
-        }
+//        boolean isPage = parameterMap.get("page") != null
+//                && Integer.parseInt(parameterMap.get("page")[0]) > 0
+//                && parameterMap.get("size") != null
+//                && Integer.parseInt(parameterMap.get("size")[0]) > 0;
+//        if (isPage) {
+//            Page page = new Page((long) Integer.parseInt(parameterMap.get("page")[0]), Integer.parseInt(parameterMap.get("size")[0]));
+//            IPage iPage = baseMapper.selectPage(page, queryWrapper);
+//            return PageWapper.pageToPageDTO((Page) iPage);
+//        }
         List<T> selectList = baseMapper.selectList(queryWrapper);
-        return PageWapper.listToPageDTO(selectList);
+        return selectList;
     }
 
 /**
