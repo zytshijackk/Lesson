@@ -14,7 +14,7 @@ import java.io.Serializable;
  * @author ${author}
  * @since 2019-04-10
  */
-public class User extends Model<User> {
+public class User extends Entity{
 
     private static final long serialVersionUID = 1L;
 
@@ -32,18 +32,14 @@ public class User extends Model<User> {
      */
 	@TableField("RoleId")
 	private Integer RoleId;
+    @TableField("Sex")
+	private String Sex;
 	@TableField("Phone")
 	private String Phone;
 	@TableField("Email")
 	private String Email;
-	@TableField("CreateDate")
-	private String CreateDate;
-	@TableField("CreateBy")
-	private Integer CreateBy;
-	@TableField("ModifyDate")
-	private String ModifyDate;
-	@TableField("ModifyBy")
-	private Integer ModifyBy;
+    @TableField("DepartmentId")
+	private  Integer DepartmentId;
 
 
 	public Integer getId() {
@@ -94,57 +90,23 @@ public class User extends Model<User> {
 		this.Email = Email;
 	}
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
-	public String getCreateDate() {
-		return CreateDate;
-	}
+    public String getSex() {
+        return Sex;
+    }
 
-	public void setCreateDate(String CreateDate) {
-		this.CreateDate = CreateDate;
-	}
+    public void setSex(String sex) {
+        Sex = sex;
+    }
 
-	public Integer getCreateBy() {
-		return CreateBy;
-	}
+    public Integer getDepartmentId() {
+        return DepartmentId;
+    }
 
-	public void setCreateBy(Integer CreateBy) {
-		this.CreateBy = CreateBy;
-	}
-
-	public String getModifyDate() {
-		return ModifyDate;
-	}
-
-	public void setModifyDate(String ModifyDate) {
-		this.ModifyDate = ModifyDate;
-	}
-
-	public Integer getModifyBy() {
-		return ModifyBy;
-	}
-
-	public void setModifyBy(Integer ModifyBy) {
-		this.ModifyBy = ModifyBy;
-	}
-
-	@Override
-	protected Serializable pkVal() {
-		return this.Id;
-	}
-
-	@Override
-	public String toString() {
-		return "User{" +
-				"Id=" + Id +
-				", No='" + No + '\'' +
-				", Name='" + Name + '\'' +
-				", RoleId=" + RoleId +
-				", Phone='" + Phone + '\'' +
-				", Email='" + Email + '\'' +
-				", CreateDate='" + CreateDate + '\'' +
-				", CreateBy=" + CreateBy +
-				", ModifyDate='" + ModifyDate + '\'' +
-				", ModifyBy=" + ModifyBy +
-				'}';
-	}
+    public void setDepartmentId(Integer departmentId) {
+        DepartmentId = departmentId;
+    }
 }
