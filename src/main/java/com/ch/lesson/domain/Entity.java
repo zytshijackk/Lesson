@@ -1,16 +1,10 @@
-/**
- * @Description TODO
- * @Author zytshijack
- * @Date 2019-05-11 08:48
- * @Version 1.0
- */
 package com.ch.lesson.domain;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 /**
- * @Description TODO
+ * @Description 通用实体父类
  * @Author zytshijack
  * @Date 2019-05-11 08:48
  * @Version 1.0
