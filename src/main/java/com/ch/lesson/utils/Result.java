@@ -62,8 +62,14 @@ public class Result
         /**
          * 密码错误
          */
-        PASSPORT_PASSWORD_ERROR(40403)
+        PASSPORT_PASSWORD_ERROR(40403),
+
+        /**
+         * 用户未登录
+         */
+        USER_UN_LOGIN(40404)
         ;
+
 
         private int code;
 

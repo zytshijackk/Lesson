@@ -31,6 +31,12 @@ public class UserController {
 	@Autowired
     private UserIService userIService;
 
+
+	/**
+	 * @Author CH
+	 * @Description 返回自定义错误的写法
+	 * @Date 8:00 2019/4/26
+	 **/
 //    @RequestMapping(value = "{id}", method = RequestMethod.GET)
 //    public Object findOneUser(@PathVariable("id") Long id) throws NotFoundException {
 //        User user = userIService.getById(id);
