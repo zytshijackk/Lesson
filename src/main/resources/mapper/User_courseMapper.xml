@@ -3,7 +3,7 @@
 <mapper namespace="com.ch.lesson.mapper.User_courseMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.User_course">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.User_course">
 		<id column="Id" property="Id" />
 		<result column="CourseId" property="CourseId" />
 		<result column="UserId" property="UserId" />
