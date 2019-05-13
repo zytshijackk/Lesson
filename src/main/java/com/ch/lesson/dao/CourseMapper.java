@@ -1,7 +1,7 @@
-package com.ch.lesson.mapper;
+package com.ch.lesson.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ch.lesson.entity.Course;
+import com.ch.lesson.domain.Course;
 
 /**
  * <p>
