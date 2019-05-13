@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
@@ -20,6 +22,7 @@ public class Permission extends Model<Permission> {
 
 	@TableId(value="Id", type= IdType.AUTO)
 	private Integer Id;
+	@NotBlank(message = "名字不能为空1")
 	@TableField("Name")
 	private String Name;
     /**
