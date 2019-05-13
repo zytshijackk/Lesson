@@ -1,6 +1,5 @@
-package com.ch.lesson.web;
+package com.ch.lesson.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

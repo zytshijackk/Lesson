@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -70,7 +71,7 @@ public class PermissionController {
      */
     //POST请求：后一个请求不会把第一个请求覆盖掉。（所以POST用来增资源）
     @RequestMapping(value = "/permission", method = RequestMethod.POST)
-    public Object createPermission(@RequestBody Permission permission, HttpSession session) {
+    public Object createPermission(@RequestBody @Valid Permission permission, HttpSession session) {
         //@RequestBody注解将Http请求正文插入方法中，即将请求中的 datas 写入 permission 对象中
         User account = (User) session.getAttribute("account");
         permission.setCreateBy(account.getId());
