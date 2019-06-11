@@ -76,6 +76,7 @@ public class PassportController {
     }
 
 
+
     // 生成验证码
     @RequestMapping("validateCode")
     public void createCode(HttpServletRequest request, HttpServletResponse response) throws IOException {

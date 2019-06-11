@@ -1,6 +1,7 @@
 com/ch/lesson/service/impl/UserServiceImpl.class
 com/ch/lesson/utils/exception/InfoErrorException.class
 com/ch/lesson/controller/RoleController.class
+com/ch/lesson/utils/BaseController.class
 com/ch/lesson/controller/DictionaryController.class
 com/ch/lesson/configurations/MybatisPlusConfig.class
 com/ch/lesson/domain/User.class
@@ -24,6 +25,7 @@ com/ch/lesson/domain/DictionaryDetail.class
 com/ch/lesson/utils/interceptors/LoginInterceptor.class
 com/ch/lesson/domain/Dictionary.class
 com/ch/lesson/service/impl/PermissionServiceImpl.class
+com/ch/lesson/utils/JsonResult.class
 com/ch/lesson/controller/PermissionController.class
 com/ch/lesson/controller/UserController.class
 com/ch/lesson/domain/Permission.class

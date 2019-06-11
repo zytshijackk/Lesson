@@ -41,7 +41,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		// 配置不拦截的URL，其中登录页和获取验证码的路径不拦截
 		if ((url.indexOf("tologin") >= 0)||
 				(url.indexOf("validateCode")>=0)||
-				(url.indexOf("login")>=0)) {
+				(url.indexOf("vueLogin")>=0)) {
 			return true;
 		}
 		// 获取Session

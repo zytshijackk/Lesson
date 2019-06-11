@@ -18,94 +18,59 @@ public class Course extends Entity {
 
     private static final long serialVersionUID = 1L;
 
-	@TableId(value="Id", type= IdType.AUTO)
-	private Integer Id;
+	@TableId(value="Cid", type= IdType.AUTO)
+	private Integer Cid;
+	@TableField("Num")
+	private String Num;
 	@TableField("ClassName")
 	private String ClassName;
 	@TableField("CourseName")
 	private String CourseName;
-    /**
-     * 所属学期
-     */
-	@TableField("Semester")
-	private String Semester;
-    /**
-     * 学习要求
-     */
-	@TableField("Demand")
-	private String Demand;
-    /**
-     * “教学进度”
-     */
-	@TableField("Process")
-	private String Process;
-    /**
-     * 考试安排
-     */
-	@TableField("Exam")
-	private String Exam;
+	@TableField("IsSchoolClass")
+	private String IsSchoolClass;
 
-
-	public Integer getId() {
-		return Id;
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
 	}
 
-	public void setId(Integer Id) {
-		this.Id = Id;
+
+	public String getNum() {
+		return Num;
+	}
+
+	public void setNum(String num) {
+		Num = num;
 	}
 
 	public String getClassName() {
 		return ClassName;
 	}
 
-	public void setClassName(String ClassName) {
-		this.ClassName = ClassName;
+	public void setClassName(String className) {
+		ClassName = className;
 	}
 
 	public String getCourseName() {
 		return CourseName;
 	}
 
-	public void setCourseName(String CourseName) {
-		this.CourseName = CourseName;
+	public void setCourseName(String courseName) {
+		CourseName = courseName;
 	}
 
-	public String getSemester() {
-		return Semester;
+	public String getIsSchoolClass() {
+		return IsSchoolClass;
 	}
 
-	public void setSemester(String Semester) {
-		this.Semester = Semester;
+	public void setIsSchoolClass(String isSchoolClass) {
+		IsSchoolClass = isSchoolClass;
 	}
 
-	public String getDemand() {
-		return Demand;
+	public Integer getCid() {
+		return Cid;
 	}
 
-	public void setDemand(String Demand) {
-		this.Demand = Demand;
+	public void setCid(Integer cid) {
+		Cid = cid;
 	}
-
-	public String getProcess() {
-		return Process;
-	}
-
-	public void setProcess(String Process) {
-		this.Process = Process;
-	}
-
-	public String getExam() {
-		return Exam;
-	}
-
-	public void setExam(String Exam) {
-		this.Exam = Exam;
-	}
-
-
-	@Override
-	protected Serializable pkVal() {
-		return this.Id;
-	}
-
 }

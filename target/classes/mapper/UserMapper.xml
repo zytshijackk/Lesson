@@ -8,6 +8,7 @@
 		<result column="No" property="No" />
 		<result column="Name" property="Name" />
 		<result column="RoleId" property="RoleId" />
+		<result column="Sex" property="Sex" />
 		<result column="Phone" property="Phone" />
 		<result column="Email" property="Email" />
 		<result column="DepartmentId" property="DepartmentId" />
@@ -19,7 +20,13 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        Id, No, Name, RoleId, Phone, Email, DepartmentId, CreateDate, CreateBy, ModifyDate, ModifyBy
+        Id, No, Name, RoleId, Sex, Phone, Email, DepartmentId, CreateDate, CreateBy, ModifyDate, ModifyBy
     </sql>
+
+	<select id="selectUserByCreateId"
+			parameterType="java.lang.String"
+			resultMap="BaseResultMap" >
+		select * from
+		User where Id=#{createId} </select>
 
 </mapper>

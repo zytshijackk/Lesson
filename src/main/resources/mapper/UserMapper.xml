@@ -23,4 +23,10 @@
         Id, No, Name, RoleId, Sex, Phone, Email, DepartmentId, CreateDate, CreateBy, ModifyDate, ModifyBy
     </sql>
 
+	<select id="selectUserByCreateId"
+			parameterType="java.lang.String"
+			resultMap="BaseResultMap" >
+		select * from
+		User where Id=#{createId} </select>
+
 </mapper>
