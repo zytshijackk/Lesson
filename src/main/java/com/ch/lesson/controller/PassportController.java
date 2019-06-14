@@ -75,6 +75,16 @@ public class PassportController {
         return result;
     }
 
+    //登出
+    @GetMapping(value = "logout")
+    public ServiceResult logout(
+            HttpSession session
+    ) {
+        session.invalidate();
+        ServiceResult result = new ServiceResult("登出成功",true);
+        return result;
+    }
+
 
 
     // 生成验证码
