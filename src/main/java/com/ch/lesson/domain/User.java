@@ -43,6 +43,8 @@ public class User extends Entity{
 	private String Email;
     @TableField("DepartmentId")
 	private  Integer DepartmentId;
+	@TableField(exist = false)
+    private String Password;
 
 
 	public Integer getId() {
@@ -112,4 +114,12 @@ public class User extends Entity{
     public void setDepartmentId(Integer departmentId) {
         DepartmentId = departmentId;
     }
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
 }

@@ -5,6 +5,7 @@ import com.ch.lesson.domain.*;
 import com.ch.lesson.domain.User;
 import com.ch.lesson.domain.User;
 import com.ch.lesson.domain.User;
+import com.ch.lesson.service.PassportIService;
 import com.ch.lesson.service.UserIService;
 import com.ch.lesson.utils.Result;
 import com.ch.lesson.utils.ServiceResult;
@@ -30,7 +31,8 @@ import java.util.List;
 public class UserController {
 	@Autowired
     private UserIService userIService;
-
+    @Autowired
+    private PassportIService passportIService;
 
 	/**
 	 * @Author CH
@@ -79,23 +81,23 @@ public class UserController {
      * @param user
      */
     //POST请求：后一个请求不会把第一个请求覆盖掉。（所以POST用来增资源）
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/create", method = RequestMethod.POST)
     public Object createUser(@RequestBody User user, HttpSession session) {
-        //@RequestBody注解将Http请求正文插入方法中，即将请求中的 datas 写入 user 对象中
-        User account = (User) session.getAttribute("account");
-        user.setCreateBy(account.getId());
-//        user.setCreateBy(1);
-        Date date = new Date();
-        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        user.setCreateDate(dateFormat.format(date));
-        user.setModifyBy(account.getId());
-//        user.setModifyBy(1);
-        user.setModifyDate(dateFormat.format(date));
         boolean isSuccess = userIService.save(user);
         if(isSuccess==true){
-            return new ServiceResult("用户添加成功！",true);
+            if(user.getPassword().trim()!=null && user.getPassword().trim()!=""){
+                if(user.getPhone().trim()!=null && user.getPhone().trim()!=""){
+                    Passport passport = new Passport(user.getPhone(), user.getPassword(), user.getId(), 1);
+                    passportIService.save(passport);
+                }
+                if(user.getEmail().trim()!=null && user.getEmail().trim()!=""){
+                    Passport passport = new Passport(user.getEmail(), user.getPassword(), user.getId(), 2);
+                    passportIService.save(passport);
+                }
+            }
+            return new ServiceResult("用户注册成功！",true);
         }else{
-            return new ServiceResult("用户添加失败！",false);
+            return new ServiceResult("用户注册失败！",false);
         }
     }
 

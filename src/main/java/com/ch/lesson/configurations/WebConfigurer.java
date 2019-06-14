@@ -46,6 +46,6 @@ public class WebConfigurer implements WebMvcConfigurer {
         //注解打开启动拦截器
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/passport/*");
+                .excludePathPatterns("/passport/*","/user/create");
     }
 }

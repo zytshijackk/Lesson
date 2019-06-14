@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * <p>
@@ -27,7 +29,7 @@ public class Passport extends Model<Passport> {
 	@TableField("UserId")
 	private Integer UserId;
     /**
-     * 登陆用户类型:手机号、邮箱
+     * 登陆用户类型:手机号1、邮箱2
      */
 	@TableField("Type")
 	private Integer Type;
@@ -40,6 +42,25 @@ public class Passport extends Model<Passport> {
 	@TableField("ModifyBy")
 	private Integer ModifyBy;
 
+	public Passport() {
+	}
+
+	/**
+	 *
+	 * @param username
+	 * @param password
+	 * @param userId
+	 * @param type
+	 */
+	public Passport(String username, String password, Integer userId, Integer type) {
+		Username = username;
+		Password = password;
+		UserId = userId;
+		Type = type;
+		Date date = new Date();
+		SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		CreateDate = dateFormat.format(date);
+	}
 
 	public Integer getId() {
 		return Id;
