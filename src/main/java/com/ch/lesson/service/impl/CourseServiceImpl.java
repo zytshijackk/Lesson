@@ -32,4 +32,9 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         }
         return page.setRecords(courseMapper.getCourseUserVO(page));
     }
+
+    @Override
+    public List<Course> getCoursesByUserId(Integer id) {
+        return courseMapper.getCoursesByUserId(id);
+    }
 }

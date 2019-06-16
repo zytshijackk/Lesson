@@ -51,5 +51,17 @@
 		from Course as C,User as U
 		where C.CreateBy=U.Id
 	</select>
+	<select id="getCoursesByUserId" resultType="com.ch.lesson.domain.Course"
+			parameterType="int">
+		select
+		<include refid="Base_Column_List" />
+		from course c
+		where c.Cid in
+		(
+			select user_course.CourseId
+			from user_course
+			where user_course.UserId=#{userId}
+		)
+	</select>
 
 </mapper>

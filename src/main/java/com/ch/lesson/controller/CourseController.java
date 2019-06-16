@@ -164,4 +164,26 @@ public class CourseController {
             return new ServiceResult("查询失败！",false);
         }
     }
+
+    /**
+     * 返回我的课程!!未写
+     * @return
+     */
+    @RequestMapping(value = "/course/mycourse", method = RequestMethod.GET)
+    public Object myCourse(HttpSession session) {
+        User account = (User) session.getAttribute("account");
+        System.out.println(account);
+        List<Course> list = courseIService.getCoursesByUserId(account.getId());
+        for (Course course : list) {
+            System.out.println(course);
+        }
+        ServiceResult result = null;
+        if(!list.isEmpty()){
+            result= new ServiceResult("查找成功", true);
+            result.addData("data",list);
+        }else{
+            result = new ServiceResult("该用户没有参与的课程！", true);
+        }
+        return result;
+    }
 }

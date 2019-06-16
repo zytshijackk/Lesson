@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ch.lesson.domain.Course;
 import com.ch.lesson.vo.CourseUserVO;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -15,5 +17,17 @@ import com.ch.lesson.vo.CourseUserVO;
  */
 public interface CourseIService extends IService<Course> {
 
+    /**
+     * 分页得到 所有课程和对应创建者信息
+     * @param objectPage
+     * @return
+     */
     Page<CourseUserVO> getCourseUserVO(Page<CourseUserVO> objectPage);
+
+    /**
+     * 通过用户id找到其所有的课程信息
+     * @param id
+     * @return
+     */
+    List<Course> getCoursesByUserId(Integer id);
 }

@@ -33,6 +33,13 @@ public class Course extends Entity {
 		return serialVersionUID;
 	}
 
+	public Integer getCid() {
+		return Cid;
+	}
+
+	public void setCid(Integer cid) {
+		Cid = cid;
+	}
 
 	public String getNum() {
 		return Num;
@@ -66,11 +73,14 @@ public class Course extends Entity {
 		IsSchoolClass = isSchoolClass;
 	}
 
-	public Integer getCid() {
-		return Cid;
-	}
-
-	public void setCid(Integer cid) {
-		Cid = cid;
+	@Override
+	public String toString() {
+		return "Course{" +
+				"Cid=" + Cid +
+				", Num='" + Num + '\'' +
+				", ClassName='" + ClassName + '\'' +
+				", CourseName='" + CourseName + '\'' +
+				", IsSchoolClass='" + IsSchoolClass + '\'' +
+				'}';
 	}
 }

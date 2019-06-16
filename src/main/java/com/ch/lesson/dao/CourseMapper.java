@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ch.lesson.domain.Course;
 import com.ch.lesson.vo.CourseUserVO;
 import javafx.scene.control.Pagination;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -31,4 +32,6 @@ public interface CourseMapper extends BaseMapper<Course> {
 //            "FROM Course,User " +
 //            "WHERE Course.CreateBy=User.Id")
     List<CourseUserVO> getCourseUserVO(Page page);
+
+    List<Course> getCoursesByUserId(@Param("userId")Integer id);
 }

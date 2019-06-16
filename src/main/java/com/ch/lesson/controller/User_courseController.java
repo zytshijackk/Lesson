@@ -14,5 +14,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user_course")
 public class User_courseController {
-	
+
 }
