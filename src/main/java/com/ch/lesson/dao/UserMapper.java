@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ch.lesson.domain.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * <p>
   *  Mapper 接口
@@ -14,4 +16,6 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface UserMapper extends BaseMapper<User> {
     User selectUserByCreateId(@Param("createId")Integer createId);
+
+    List<User> selectStudentByCourseId(@Param("courseId")Long id);
 }

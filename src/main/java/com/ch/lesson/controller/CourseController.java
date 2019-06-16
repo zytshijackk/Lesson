@@ -166,23 +166,36 @@ public class CourseController {
     }
 
     /**
-     * 返回我的课程!!未写
+     * 返回我的课程
      * @return
      */
     @RequestMapping(value = "/course/mycourse", method = RequestMethod.GET)
     public Object myCourse(HttpSession session) {
         User account = (User) session.getAttribute("account");
-        System.out.println(account);
         List<Course> list = courseIService.getCoursesByUserId(account.getId());
-        for (Course course : list) {
-            System.out.println(course);
-        }
         ServiceResult result = null;
         if(!list.isEmpty()){
             result= new ServiceResult("查找成功", true);
             result.addData("data",list);
         }else{
             result = new ServiceResult("该用户没有参与的课程！", true);
+        }
+        return result;
+    }
+
+    /**
+     * 查询班课里的所有学生，不包括老师
+     * @return
+     */
+    @RequestMapping(value = "/course/getStuByCourse/{id}", method = RequestMethod.GET)
+    public Object selectStudentByCourseId(@PathVariable("id") Long id) {
+        List<User> list = userIService.selectStudentByCourseId(id);
+        ServiceResult result = null;
+        if(!list.isEmpty()){
+            result= new ServiceResult("查找成功", true);
+            result.addData("data",list);
+        }else{
+            result = new ServiceResult("该课程没有学生参与！", true);
         }
         return result;
     }

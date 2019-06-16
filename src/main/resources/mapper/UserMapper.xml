@@ -28,5 +28,10 @@
 			resultMap="BaseResultMap" >
 		select * from
 		User where Id=#{createId} </select>
+	<select id="selectStudentByCourseId" resultType="com.ch.lesson.domain.User">
+		select * from User u
+		where u.Id in (select user_course.UserId from user_course where user_course.CourseId=#{courseId})
+		and u.RoleId!=1
+	</select>
 
 </mapper>
