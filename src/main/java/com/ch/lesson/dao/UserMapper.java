@@ -1,7 +1,7 @@
 package com.ch.lesson.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ch.lesson.domain.User;
+import com.ch.lesson.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

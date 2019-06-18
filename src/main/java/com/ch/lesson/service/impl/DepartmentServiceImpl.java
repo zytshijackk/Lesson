@@ -2,7 +2,7 @@ package com.ch.lesson.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ch.lesson.dao.DepartmentMapper;
-import com.ch.lesson.domain.Department;
+import com.ch.lesson.entity.Department;
 import com.ch.lesson.service.DepartmentIService;
 import org.springframework.stereotype.Service;
 

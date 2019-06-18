@@ -2,7 +2,7 @@ package com.ch.lesson.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ch.lesson.dao.SchoolMapper;
-import com.ch.lesson.domain.School;
+import com.ch.lesson.entity.School;
 import com.ch.lesson.service.SchoolIService;
 import org.springframework.stereotype.Service;
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.ch.lesson.dao.PermissionMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.Permission">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.Permission">
 		<id column="Id" property="Id" />
 		<result column="Name" property="Name" />
 		<result column="Position" property="Position" />

@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ch.lesson.domain.User;
+import com.ch.lesson.entity.User;
 import com.ch.lesson.utils.Result;
 import com.ch.lesson.utils.exception.NotFoundException;
 import org.springframework.web.servlet.HandlerInterceptor;

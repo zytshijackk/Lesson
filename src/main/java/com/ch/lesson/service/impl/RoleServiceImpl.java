@@ -1,6 +1,6 @@
 package com.ch.lesson.service.impl;
 
-import com.ch.lesson.domain.Role;
+import com.ch.lesson.entity.Role;
 import com.ch.lesson.dao.RoleMapper;
 import com.ch.lesson.service.RoleIService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

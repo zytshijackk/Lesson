@@ -1,7 +1,7 @@
 package com.ch.lesson.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ch.lesson.domain.Passport;
+import com.ch.lesson.entity.Passport;
 import com.ch.lesson.utils.ServiceResult;
 
 /**

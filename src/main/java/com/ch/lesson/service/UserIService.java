@@ -1,6 +1,6 @@
 package com.ch.lesson.service;
 
-import com.ch.lesson.domain.User;
+import com.ch.lesson.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;

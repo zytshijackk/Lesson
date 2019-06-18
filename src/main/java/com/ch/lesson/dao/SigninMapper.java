@@ -1,7 +1,7 @@
 package com.ch.lesson.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ch.lesson.domain.Signin;
+import com.ch.lesson.entity.Signin;
 
 /**
  * <p>

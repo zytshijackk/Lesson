@@ -1,11 +1,7 @@
 package com.ch.lesson.vo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.ch.lesson.domain.Course;
-import com.ch.lesson.domain.Entity;
-import com.ch.lesson.domain.User;
+import com.ch.lesson.entity.Course;
+import com.ch.lesson.entity.User;
 
 /**
  * <p>

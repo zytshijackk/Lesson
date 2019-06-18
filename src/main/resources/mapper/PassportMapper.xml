@@ -3,7 +3,7 @@
 <mapper namespace="com.ch.lesson.dao.PassportMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.Passport">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.Passport">
 		<id column="Id" property="Id" />
 		<result column="Username" property="Username" />
 		<result column="Password" property="Password" />

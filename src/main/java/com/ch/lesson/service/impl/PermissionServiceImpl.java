@@ -2,14 +2,13 @@ package com.ch.lesson.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ch.lesson.domain.Permission;
+import com.ch.lesson.entity.Permission;
 import com.ch.lesson.dao.PermissionMapper;
 import com.ch.lesson.service.PermissionIService;
 import com.ch.lesson.utils.TreeNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

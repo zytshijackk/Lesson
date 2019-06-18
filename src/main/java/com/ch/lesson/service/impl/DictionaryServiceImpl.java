@@ -2,7 +2,7 @@ package com.ch.lesson.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ch.lesson.dao.DictionaryMapper;
-import com.ch.lesson.domain.Dictionary;
+import com.ch.lesson.entity.Dictionary;
 import com.ch.lesson.service.DictionaryIService;
 import org.springframework.stereotype.Service;
 

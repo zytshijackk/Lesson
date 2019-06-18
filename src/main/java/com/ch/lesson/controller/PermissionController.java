@@ -1,14 +1,11 @@
 package com.ch.lesson.controller;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
-import com.ch.lesson.domain.Permission;
-import com.ch.lesson.domain.User;
+import com.ch.lesson.entity.Permission;
+import com.ch.lesson.entity.User;
 import com.ch.lesson.service.PermissionIService;
 import com.ch.lesson.utils.ServiceResult;
 import com.ch.lesson.utils.TreeNode;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -16,7 +13,6 @@ import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * <p>

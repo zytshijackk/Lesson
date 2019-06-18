@@ -1,6 +1,6 @@
 package com.ch.lesson.service;
 
-import com.ch.lesson.domain.Signin;
+import com.ch.lesson.entity.Signin;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

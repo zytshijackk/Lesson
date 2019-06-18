@@ -3,7 +3,7 @@
 <mapper namespace="com.ch.lesson.dao.DepartmentMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.Department">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.Department">
 		<id column="Id" property="Id" />
 		<result column="Name" property="Name" />
 		<result column="SchoolId" property="SchoolId" />

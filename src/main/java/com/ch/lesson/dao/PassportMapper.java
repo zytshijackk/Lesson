@@ -1,10 +1,7 @@
 package com.ch.lesson.dao;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ch.lesson.domain.Passport;
-
-import java.util.List;
+import com.ch.lesson.entity.Passport;
 
 /**
  * <p>

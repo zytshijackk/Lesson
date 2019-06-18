@@ -1,7 +1,6 @@
 package com.ch.lesson.service.impl;
 
-import com.ch.lesson.dao.PermissionMapper;
-import com.ch.lesson.domain.User;
+import com.ch.lesson.entity.User;
 import com.ch.lesson.dao.UserMapper;
 import com.ch.lesson.service.UserIService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

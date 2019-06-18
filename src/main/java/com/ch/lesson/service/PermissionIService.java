@@ -1,6 +1,6 @@
 package com.ch.lesson.service;
 
-import com.ch.lesson.domain.Permission;
+import com.ch.lesson.entity.Permission;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ch.lesson.utils.TreeNode;
 

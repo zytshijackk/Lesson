@@ -1,7 +1,7 @@
 package com.ch.lesson.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ch.lesson.domain.DictionaryDetail;
+import com.ch.lesson.entity.DictionaryDetail;
 
 /**
  * <p>

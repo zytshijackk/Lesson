@@ -3,7 +3,7 @@
 <mapper namespace="com.ch.lesson.dao.UserMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.User">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.User">
 		<id column="Id" property="Id" />
 		<result column="No" property="No" />
 		<result column="Name" property="Name" />
@@ -28,7 +28,7 @@
 			resultMap="BaseResultMap" >
 		select * from
 		User where Id=#{createId} </select>
-	<select id="selectStudentByCourseId" resultType="com.ch.lesson.domain.User">
+	<select id="selectStudentByCourseId" resultType="com.ch.lesson.entity.User">
 		select * from User u
 		where u.Id in (select user_course.UserId from user_course where user_course.CourseId=#{courseId})
 		and u.RoleId!=1

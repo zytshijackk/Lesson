@@ -3,7 +3,7 @@
 <mapper namespace="com.ch.lesson.dao.DictionaryDetailMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.DictionaryDetail">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.DictionaryDetail">
 		<id column="Id" property="Id" />
 		<result column="DictionaryId" property="DictionaryId" />
 		<result column="ItemKey" property="ItemKey" />

@@ -1,7 +1,7 @@
 package com.ch.lesson.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ch.lesson.domain.RolePermission;
+import com.ch.lesson.entity.RolePermission;
 import com.ch.lesson.dao.RolePermissionMapper;
 import com.ch.lesson.service.RolePermissionIService;
 import org.springframework.stereotype.Service;

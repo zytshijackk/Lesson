@@ -2,7 +2,7 @@ package com.ch.lesson.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ch.lesson.dao.User_courseMapper;
-import com.ch.lesson.domain.User_course;
+import com.ch.lesson.entity.User_course;
 import com.ch.lesson.service.User_courseIService;
 import org.springframework.stereotype.Service;
 

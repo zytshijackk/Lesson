@@ -3,7 +3,7 @@
 <mapper namespace="com.ch.lesson.dao.RoleMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.Role">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.Role">
 		<id column="Id" property="Id" />
 		<result column="Name" property="Name" />
 		<result column="CreateDate" property="CreateDate" />

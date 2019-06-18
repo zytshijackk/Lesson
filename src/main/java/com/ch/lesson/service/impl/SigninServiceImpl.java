@@ -1,6 +1,6 @@
 package com.ch.lesson.service.impl;
 
-import com.ch.lesson.domain.Signin;
+import com.ch.lesson.entity.Signin;
 import com.ch.lesson.dao.SigninMapper;
 import com.ch.lesson.service.SigninIService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

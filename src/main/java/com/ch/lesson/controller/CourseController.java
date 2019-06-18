@@ -2,8 +2,8 @@ package com.ch.lesson.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ch.lesson.domain.Course;
-import com.ch.lesson.domain.User;
+import com.ch.lesson.entity.Course;
+import com.ch.lesson.entity.User;
 import com.ch.lesson.service.CourseIService;
 import com.ch.lesson.service.UserIService;
 import com.ch.lesson.utils.ServiceResult;

@@ -3,7 +3,7 @@
 <mapper namespace="com.ch.lesson.dao.CourseMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.Course">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.Course">
 		<id column="Cid" property="Cid" />
 		<id column="Num" property="Num" />
 		<result column="ClassName" property="ClassName" />
@@ -25,7 +25,7 @@
                 property="role"指定哪个属性是联合的对象
                 javaType:指定这个属性对象的类型
             -->
-		<association property="CreateUser" javaType="com.ch.lesson.domain.User">
+		<association property="CreateUser" javaType="com.ch.lesson.entity.User">
 			<id column="Id" property="Id" />
 			<result column="No" property="No" />
 			<result column="Name" property="Name" />
@@ -51,7 +51,7 @@
 		from Course as C,User as U
 		where C.CreateBy=U.Id
 	</select>
-	<select id="getCoursesByUserId" resultType="com.ch.lesson.domain.Course"
+	<select id="getCoursesByUserId" resultType="com.ch.lesson.entity.Course"
 			parameterType="int">
 		select
 		<include refid="Base_Column_List" />

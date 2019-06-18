@@ -3,7 +3,7 @@ package com.ch.lesson.service.impl;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ch.lesson.dao.CourseMapper;
-import com.ch.lesson.domain.Course;
+import com.ch.lesson.entity.Course;
 import com.ch.lesson.service.CourseIService;
 import com.ch.lesson.vo.CourseUserVO;
 import org.springframework.beans.factory.annotation.Autowired;

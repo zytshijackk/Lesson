@@ -1,6 +1,6 @@
 package com.ch.lesson.service;
 
-import com.ch.lesson.domain.RolePermission;
+import com.ch.lesson.entity.RolePermission;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

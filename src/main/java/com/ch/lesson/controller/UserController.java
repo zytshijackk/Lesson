@@ -1,15 +1,11 @@
 package com.ch.lesson.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.ch.lesson.domain.*;
-import com.ch.lesson.domain.User;
-import com.ch.lesson.domain.User;
-import com.ch.lesson.domain.User;
+import com.ch.lesson.entity.*;
+import com.ch.lesson.entity.User;
 import com.ch.lesson.service.PassportIService;
 import com.ch.lesson.service.UserIService;
-import com.ch.lesson.utils.Result;
 import com.ch.lesson.utils.ServiceResult;
-import com.ch.lesson.utils.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

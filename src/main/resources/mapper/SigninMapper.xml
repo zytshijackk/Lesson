@@ -3,13 +3,13 @@
 <mapper namespace="com.ch.lesson.dao.SigninMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.ch.lesson.domain.Signin">
+	<resultMap id="BaseResultMap" type="com.ch.lesson.entity.Signin">
 		<id column="Id" property="Id" />
 		<result column="Status" property="Status" />
 		<result column="Remark" property="Remark" />
 		<result column="Time" property="Time" />
 		<result column="UserId" property="UserId" />
-		<result column="ClassId" property="ClassId" />
+		<result column="LaunchSigninId" property="LaunchSigninId" />
 		<result column="CreateDate" property="CreateDate" />
 		<result column="CreateBy" property="CreateBy" />
 		<result column="ModifyDate" property="ModifyDate" />
@@ -18,7 +18,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        Id, Status, Remark, Time, UserId, ClassId, CreateDate, CreateBy, ModifyDate, ModifyBy
+        Id, Status, Remark, Time, UserId, LaunchSigninId, CreateDate, CreateBy, ModifyDate, ModifyBy
     </sql>
 
 </mapper>
