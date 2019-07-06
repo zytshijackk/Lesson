@@ -12,16 +12,14 @@ import com.ch.lesson.service.SigninIService;
 import com.ch.lesson.utils.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -42,12 +40,18 @@ public class Launch_signinController {
     /**
      * 班课创建人发起签到
      * @param currentTime 手机传来的当前时间
-     * @param cid  手机传来的班课cid
+     * @param cid 手机传来的班课cid
      * @param session
      * @return
      */
     @RequestMapping(value = "/launch_signin", method = RequestMethod.POST)
-    public Object launchSignin(@RequestParam(value = "currentTime") String currentTime, @RequestParam(value = "cid")Integer cid, HttpSession session) throws ParseException {
+    public Object launchSignin(
+            @RequestBody Map<String, String> map,
+//            @RequestParam(value = "currentTime") String currentTime, @RequestParam(value = "cid")Integer cid,
+            HttpSession session) throws ParseException {
+        String currentTime = map.get("currentTime");
+        String cid1 = map.get("cid");
+        Integer cid = Integer.parseInt(cid1);
         System.out.println("!"+currentTime);
         User account = (User) session.getAttribute("account");
         Course course = courseIService.getById(cid);
@@ -102,6 +106,28 @@ public class Launch_signinController {
             }
         }else{
             result = new ServiceResult("你不是班课创建人，无权发起签到",false);
+        }
+        return result;
+    }
+
+    /**
+     * 查看我的发起签到
+     * @param session
+     * @return
+     */
+    @GetMapping("/launch_signin/mylaunch")
+    public Object getMylaunch(HttpSession session) {
+        User account = (User) session.getAttribute("account");
+        List<Launch_signin> list = launch_signinIService.list(
+                new QueryWrapper<Launch_signin>().lambda()
+                        .eq(Launch_signin::getCreateBy, account.getId())
+        );
+        ServiceResult result = null;
+        if(list.isEmpty()){
+            result = new ServiceResult("没有数据！",false);
+        }else{
+            result = new ServiceResult("查询成功！",true);
+            result.addData("data",list);
         }
         return result;
     }

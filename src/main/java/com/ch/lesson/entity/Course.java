@@ -16,7 +16,7 @@ public class Course extends Entity {
 
     private static final long serialVersionUID = 1L;
 
-	@TableId(value="Cid", type= IdType.AUTO)
+	@TableId(value="Cid")
 	private Integer Cid;
 	@TableField("Num")
 	private String Num;

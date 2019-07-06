@@ -66,6 +66,7 @@ public class UserController {
      * 查找所有
      * @return
      */
+    @CrossOrigin//跨源资源共享（CORS）
     @GetMapping(value = "/user")
     public List<User> findAllUser() {
         return userIService.list(new QueryWrapper<>());

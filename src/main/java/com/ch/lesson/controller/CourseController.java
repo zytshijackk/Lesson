@@ -2,10 +2,14 @@ package com.ch.lesson.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.additional.query.impl.LambdaQueryChainWrapper;
+import com.ch.lesson.dao.User_courseMapper;
 import com.ch.lesson.entity.Course;
 import com.ch.lesson.entity.User;
+import com.ch.lesson.entity.User_course;
 import com.ch.lesson.service.CourseIService;
 import com.ch.lesson.service.UserIService;
+import com.ch.lesson.service.User_courseIService;
 import com.ch.lesson.utils.ServiceResult;
 import com.ch.lesson.vo.CourseUserVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +36,10 @@ public class CourseController {
     private CourseIService courseIService;
     @Autowired
     private UserIService userIService;
+    @Autowired
+    private User_courseMapper user_courseMapper;
+    @Autowired
+    private User_courseIService user_courseIService;
     /**
      * 移动端查找一个
      * @param id
@@ -79,6 +87,7 @@ public class CourseController {
     @RequestMapping(value = "/course", method = RequestMethod.POST)
     public Object createCourse(@RequestBody Course course, HttpSession session) {
         //@RequestBody注解将Http请求正文插入方法中，即将请求中的 datas 写入 course 对象中
+
         User account = (User) session.getAttribute("account");
         course.setCreateBy(account.getId());
 //        course.setCreateBy(1);
@@ -88,6 +97,7 @@ public class CourseController {
         course.setModifyBy(account.getId());
 //        course.setModifyBy(1);
         course.setModifyDate(dateFormat.format(date));
+        System.out.println(course.toString());
         boolean isSuccess = courseIService.save(course);
         if(isSuccess==true){
             return new ServiceResult("班课添加成功！",true);
@@ -155,6 +165,7 @@ public class CourseController {
      */
     @RequestMapping(value = "/course/{id}", method = RequestMethod.GET)
     public Object findOneCourse1(@PathVariable("id") Long id) {
+
         Course course = courseIService.getById(id);
         if(course!=null){
             ServiceResult result = new ServiceResult("查询成功！",true);
@@ -162,6 +173,38 @@ public class CourseController {
             return result;
         }else{
             return new ServiceResult("查询失败！",false);
+        }
+    }
+
+    /**
+     * 加入班课
+     * @param id
+     * @return Course
+     */
+    @RequestMapping(value = "/course/join/{id}", method = RequestMethod.GET)
+    public Object joinCourse(@PathVariable("id") Integer id,HttpSession session) {
+        User account = (User) session.getAttribute("account");
+        //查询用户是否已加入改班课
+        List<User_course> user_courses = user_courseMapper.selectList(
+                new QueryWrapper<User_course>().lambda()
+                        .eq(User_course::getUserId, account.getId())
+                        .eq(User_course::getCourseId, id)
+        );
+        if(!user_courses.isEmpty()){
+            ServiceResult result = new ServiceResult("你已加入该班课，不要重复加入！",false);
+            return result;
+        }else{
+            User_course user_course = new User_course();
+            user_course.setCourseId(id);
+            user_course.setUserId(account.getId());
+            boolean save = user_courseIService.save(user_course);
+            if(save){
+                ServiceResult result = new ServiceResult("加入班课成功！",true);
+                return result;
+            }else{
+                ServiceResult result = new ServiceResult("加入班课失败！",false);
+                return result;
+            }
         }
     }
 

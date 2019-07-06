@@ -11,16 +11,14 @@ import com.ch.lesson.service.Launch_signinIService;
 import com.ch.lesson.service.SigninIService;
 import com.ch.lesson.utils.ServiceResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -47,8 +45,14 @@ public class SigninController {
      * @return
      */
     @RequestMapping(value = "/signin/join", method = RequestMethod.POST)
-    public Object joinSignin(@RequestParam(value = "currentTime") String currentTime,@RequestParam(value = "cid")Integer cid, HttpSession session) throws ParseException {
+    public Object joinSignin(
+            @RequestBody Map<String, String> map,
+//            @RequestParam(value = "currentTime") String currentTime,@RequestParam(value = "cid")Integer cid,
+            HttpSession session) throws ParseException {
         User account = (User) session.getAttribute("account");
+        String currentTime = map.get("currentTime");
+        String cid1 = map.get("cid");
+        Integer cid = Integer.parseInt(cid1);
         Course currentCourse = courseIService.getById(cid);
         if(currentCourse.getCreateBy()==account.getId()){
             return new ServiceResult("你是班课创建者，不能参与签到！",false);
